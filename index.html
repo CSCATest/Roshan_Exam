@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roshan's Monthly Exam</title>
+<style>
+  :root {
+    --ink: #1f2937;
+    --muted: #6b7280;
+    --accent: #b91c1c;
+    --line: #e5e7eb;
+    --bg: #f8fafc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    margin: 0;
+    line-height: 1.6;
+  }
+  main { max-width: 860px; margin: 0 auto; padding: 24px 16px 64px; }
+
+  header.exam-head {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 6px solid var(--accent);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  h1 { margin: 0 0 6px; font-size: 1.9rem; }
+  h2 { font-size: 1.35rem; margin: 0 0 6px; color: var(--accent); }
+  h3 { font-size: 1.05rem; margin: 22px 0 8px; }
+  p.sub { color: var(--muted); margin: 0 0 12px; font-size: .95rem; }
+
+  section {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 10px; color: var(--muted); font-size: .95rem; }
+  .timer {
+    display: inline-block;
+    background: #f1f5f9;
+    border-radius: 999px;
+    padding: 2px 12px;
+    font-size: .9rem;
+    font-weight: 600;
+  }
+  .fields { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; }
+  .fields label { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: .95rem; }
+
+  input[type=text].line {
+    font: inherit;
+    border: none;
+    border-bottom: 1px solid #94a3b8;
+    background: transparent;
+    padding: 2px 6px;
+    width: 150px;
+    color: var(--ink);
+  }
+  input[type=text].line.wide { width: 320px; }
+  input[type=text].line.short { width: 70px; text-align: center; }
+  textarea {
+    width: 100%;
+    min-height: 220px;
+    font: inherit;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    resize: vertical;
+    color: var(--ink);
+  }
+
+  .info {
+    background: #eff6ff;
+    border-left: 4px solid #3b82f6;
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin: 12px 0;
+  }
+  .note {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin: 12px 0;
+  }
+  a { color: #1d4ed8; }
+
+  ol.q { padding-left: 24px; }
+  ol.q > li { margin-bottom: 14px; padding-left: 4px; }
+  ol.q.speak > li { margin-bottom: 6px; }
+  .opts { margin-top: 4px; padding-left: 2px; }
+  .opts label { display: block; margin: 2px 0; cursor: pointer; }
+  .opts input { margin-right: 6px; }
+
+  .part-title { font-weight: 700; margin: 18px 0 6px; font-size: 1rem; }
+
+  .print-btn {
+    margin-top: 14px;
+    font: inherit;
+    font-size: .9rem;
+    background: #fff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 6px 14px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 1.5rem; }
+    section, header.exam-head { padding: 16px; }
+    input[type=text].line.wide { width: 100%; }
+  }
+  @media print {
+    body { background: #fff; }
+    .no-print { display: none !important; }
+    section { break-inside: avoid; border: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+<header class="exam-head">
+  <h1>Roshan's Monthly Exam</h1>
+  <p class="sub">English Language Class</p>
+  <div class="meta">
+    <span>Friday, 11:00 AM – 1:00 PM</span>
+    <span>Total time: 2 hours</span>
+  </div>
+  <div class="fields">
+    <label>Name: <input type="text" class="line wide"></label>
+    <label>Date: <input type="text" class="line"></label>
+  </div>
+  <div class="info">
+    <strong>Instructions:</strong> Read each section carefully. Follow the teacher's guidance for any external websites.
+    Write your answers in the spaces provided. Keep your eyes on the clock for each timed section.
+  </div>
+  <button class="print-btn no-print" onclick="window.print()">Print this exam</button>
+</header>
+
+<!-- ============================================================
+     SECTION 1: SPEAKING
+     ============================================================ -->
+<section id="speaking">
+  <h2>1. Speaking Session</h2>
+  <p class="sub"><span class="timer">30 minutes</span> &nbsp; The teacher will ask 30–40 questions from the list below.</p>
+
+  <div class="part-title">Part 1 – About You</div>
+  <ol class="q speak" start="1">
+    <li>What is your name?</li>
+    <li>How old are you?</li>
+    <li>Where do you live?</li>
+    <li>Do you have any brothers or sisters?</li>
+    <li>What do you do? Do you study or work?</li>
+    <li>What time do you get up in the morning?</li>
+    <li>What do you usually have for breakfast?</li>
+    <li>How do you go to school or work?</li>
+    <li>How long does it take you to get there?</li>
+    <li>Do you live in a house or an apartment?</li>
+  </ol>
+
+  <div class="part-title">Part 2 – Daily Life and Home</div>
+  <ol class="q speak" start="11">
+    <li>What do you do in your free time?</li>
+    <li>Do you like cooking? What is your favourite food?</li>
+    <li>How often do you go shopping?</li>
+    <li>What is your favourite day of the week? Why?</li>
+    <li>Do you have a pet? If not, would you like one?</li>
+    <li>What do you usually do on weekends?</li>
+    <li>Can you describe your room?</li>
+    <li>How many people are in your family?</li>
+    <li>What do you do when you feel tired?</li>
+    <li>What do you like to drink in the morning?</li>
+  </ol>
+
+  <div class="part-title">Part 3 – Hobbies, Sports and Entertainment</div>
+  <ol class="q speak" start="21">
+    <li>Do you like music? What kind of music do you like?</li>
+    <li>Do you play any sports? Which one?</li>
+    <li>Do you like watching films? What kind of films do you like?</li>
+    <li>Did you watch any films last month?</li>
+    <li>What is your favourite TV programme?</li>
+    <li>Do you read books or magazines?</li>
+    <li>Can you swim? Can you ride a bicycle?</li>
+    <li>Do you like to travel? Where have you been?</li>
+    <li>What is your favourite holiday?</li>
+    <li>Do you prefer going out or staying at home? Why?</li>
+  </ol>
+
+  <div class="part-title">Part 4 – Past Experiences</div>
+  <ol class="q speak" start="31">
+    <li>What did you do yesterday?</li>
+    <li>What did you do last weekend?</li>
+    <li>Where were you at 7 o'clock last night?</li>
+    <li>When did you start learning English?</li>
+    <li>Have you ever been to another country?</li>
+    <li>What was the best day of your life?</li>
+    <li>Did you go to school when you were a child? What was it like?</li>
+    <li>Have you ever tried a food you did not like? What was it?</li>
+    <li>What did you do on your last birthday?</li>
+    <li>Have you ever won anything? What did you win?</li>
+  </ol>
+
+  <div class="part-title">Part 5 – Plans, Opinions and Future</div>
+  <ol class="q speak" start="41">
+    <li>What are you going to do this weekend?</li>
+    <li>What will you do after this exam?</li>
+    <li>Where would you like to go on holiday?</li>
+    <li>What is your plan for next year?</li>
+    <li>What do you think about social media?</li>
+    <li>What is the weather like today? What is your favourite season?</li>
+    <li>What do you think about public transport in your city?</li>
+    <li>What is your favourite place in your town? Why?</li>
+    <li>What would you like to learn in the future?</li>
+    <li>If you had one wish, what would it be?</li>
+  </ol>
+</section>
+
+<!-- ============================================================
+     SECTION 2: READING
+     ============================================================ -->
+<section id="reading">
+  <h2>2. Reading Session</h2>
+  <p class="sub">Reading is done on external websites. Follow the teacher's instructions for the links.</p>
+
+  <div class="note">
+    <strong>Please go to the site instructed by the teacher.</strong> Do not start until the teacher gives you the link.
+  </div>
+
+  <div class="part-title">Part A – Himalayan Times (Article Study 1 &amp; 2)</div>
+  <p>Read <strong>two articles</strong> from the Himalayan Times on the site the teacher gives you.
+     Then complete the follow-up speaking exercise with the teacher.</p>
+  <p><span class="timer">Follow-up speaking: 20 minutes</span></p>
+  <div class="fields">
+    <label>Article 1 title: <input type="text" class="line wide"></label>
+    <label>Article 2 title: <input type="text" class="line wide"></label>
+  </div>
+
+  <div class="part-title">Part B – Test English (Article Study 3 &amp; 4)</div>
+  <p>Read <strong>two articles</strong> on the Test English site the teacher gives you. Answer the questions for each article.</p>
+  <div class="fields">
+    <label>Article 3 score: <input type="text" class="line short"> / <input type="text" class="line short"></label>
+    <label>Article 4 score: <input type="text" class="line short"> / <input type="text" class="line short"></label>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3: LISTENING
+     ============================================================ -->
+<section id="listening">
+  <h2>3. Listening</h2>
+  <p class="sub"><span class="timer">45 minutes</span></p>
+
+  <div class="part-title">Daily Dictation</div>
+  <div class="info">
+    Use the <strong>Daily Dictation</strong> website (<a href="https://dailydictation.com" target="_blank" rel="noopener">dailydictation.com</a>).
+    Listen and type <strong>50 sentences</strong>. Your teacher will confirm which lesson to use.
+  </div>
+  <div class="fields">
+    <label>Sentences completed: <input type="text" class="line short"> / <input type="text" class="line short"></label>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4: WRITING
+     ============================================================ -->
+<section id="writing">
+  <h2>4. Writing</h2>
+  <p class="sub">This section has four parts.</p>
+
+  <!-- 4.1 Movie MCQ -->
+  <div class="part-title">4.1 Movie Study – “The Pursuit of Happyness”</div>
+  <p class="sub">Choose the best answer. Based on the movie we watched in movie study.</p>
+  <ol class="q">
+    <li>
+      <div>What is Chris Gardner's job at the start of the story?</div>
+      <div class="opts">
+        <label><input type="radio" name="m1" value="a"> a) He is a teacher</label>
+        <label><input type="radio" name="m1" value="b"> b) He sells medical scanners</label>
+        <label><input type="radio" name="m1" value="c"> c) He drives a taxi</label>
+      </div>
+    </li>
+    <li>
+      <div>Where does the story take place?</div>
+      <div class="opts">
+        <label><input type="radio" name="m2" value="a"> a) San Francisco</label>
+        <label><input type="radio" name="m2" value="b"> b) New York</label>
+        <label><input type="radio" name="m2" value="c"> c) Los Angeles</label>
+      </div>
+    </li>
+    <li>
+      <div>What is the name of Chris's son?</div>
+      <div class="opts">
+        <label><input type="radio" name="m3" value="a"> a) Jaden</label>
+        <label><input type="radio" name="m3" value="b"> b) Will</label>
+        <label><input type="radio" name="m3" value="c"> c) Christopher</label>
+      </div>
+    </li>
+    <li>
+      <div>What is Chris's big goal?</div>
+      <div class="opts">
+        <label><input type="radio" name="m4" value="a"> a) to become a doctor</label>
+        <label><input type="radio" name="m4" value="b"> b) to become a stockbroker</label>
+        <label><input type="radio" name="m4" value="c"> c) to open a restaurant</label>
+      </div>
+    </li>
+    <li>
+      <div>What does Chris get at the company Dean Witter Reynolds?</div>
+      <div class="opts">
+        <label><input type="radio" name="m5" value="a"> a) an unpaid internship</label>
+        <label><input type="radio" name="m5" value="b"> b) a new car</label>
+        <label><input type="radio" name="m5" value="c"> c) a big house</label>
+      </div>
+    </li>
+    <li>
+      <div>Where do Chris and Christopher sometimes sleep?</div>
+      <div class="opts">
+        <label><input type="radio" name="m6" value="a"> a) in a hotel</label>
+        <label><input type="radio" name="m6" value="b"> b) on the beach</label>
+        <label><input type="radio" name="m6" value="c"> c) in a homeless shelter</label>
+      </div>
+    </li>
+    <li>
+      <div>Why does Chris have money problems?</div>
+      <div class="opts">
+        <label><input type="radio" name="m7" value="a"> a) He does not like his job.</label>
+        <label><input type="radio" name="m7" value="b"> b) The scanners do not sell well.</label>
+        <label><input type="radio" name="m7" value="c"> c) He spends too much money on food.</label>
+      </div>
+    </li>
+    <li>
+      <div>Is the movie based on a true story?</div>
+      <div class="opts">
+        <label><input type="radio" name="m8" value="a"> a) Yes</label>
+        <label><input type="radio" name="m8" value="b"> b) No</label>
+        <label><input type="radio" name="m8" value="c"> c) It is a cartoon.</label>
+      </div>
+    </li>
+    <li>
+      <div>Where does Christopher spend his day?</div>
+      <div class="opts">
+        <label><input type="radio" name="m9" value="a"> a) at school</label>
+        <label><input type="radio" name="m9" value="b"> b) at work</label>
+        <label><input type="radio" name="m9" value="c"> c) at a day-care centre</label>
+      </div>
+    </li>
+    <li>
+      <div>Which word describes Chris best?</div>
+      <div class="opts">
+        <label><input type="radio" name="m10" value="a"> a) lazy</label>
+        <label><input type="radio" name="m10" value="b"> b) determined</label>
+        <label><input type="radio" name="m10" value="c"> c) shy</label>
+      </div>
+    </li>
+  </ol>
+
+  <!-- 4.2 God of War -->
+  <div class="part-title">4.2 Game Study – “God of War” (story and lore)</div>
+  <p class="sub">Use this Wikipedia page to help you:
+    <a href="https://en.wikipedia.org/wiki/God_of_War_(franchise)" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/God_of_War_(franchise)</a></p>
+
+  <p><strong>Part A – Multiple choice</strong></p>
+  <ol class="q">
+    <li>
+      <div>Who tricked Kratos into killing his own family?</div>
+      <div class="opts">
+        <label><input type="radio" name="g1" value="a"> a) Zeus</label>
+        <label><input type="radio" name="g1" value="b"> b) Ares</label>
+        <label><input type="radio" name="g1" value="c"> c) Hades</label>
+      </div>
+    </li>
+    <li>
+      <div>In the first game, what does Athena ask Kratos to find?</div>
+      <div class="opts">
+        <label><input type="radio" name="g2" value="a"> a) the Flame of Olympus</label>
+        <label><input type="radio" name="g2" value="b"> b) the Golden Fleece</label>
+        <label><input type="radio" name="g2" value="c"> c) Pandora's Box</label>
+      </div>
+    </li>
+    <li>
+      <div>What happens to Kratos at the end of the first game?</div>
+      <div class="opts">
+        <label><input type="radio" name="g3" value="a"> a) He becomes king of Sparta.</label>
+        <label><input type="radio" name="g3" value="b"> b) He becomes the new God of War.</label>
+        <label><input type="radio" name="g3" value="c"> c) He dies.</label>
+      </div>
+    </li>
+    <li>
+      <div>In God of War II, Kratos is angry at…</div>
+      <div class="opts">
+        <label><input type="radio" name="g4" value="a"> a) his fellow gods</label>
+        <label><input type="radio" name="g4" value="b"> b) the Titans</label>
+        <label><input type="radio" name="g4" value="c"> c) the Persians</label>
+      </div>
+    </li>
+    <li>
+      <div>Who tells Kratos that he is Zeus's son?</div>
+      <div class="opts">
+        <label><input type="radio" name="g5" value="a"> a) Gaia</label>
+        <label><input type="radio" name="g5" value="b"> b) Athena</label>
+        <label><input type="radio" name="g5" value="c"> c) Ares</label>
+      </div>
+    </li>
+    <li>
+      <div>Who tells Kratos to find the Sisters of Fate?</div>
+      <div class="opts">
+        <label><input type="radio" name="g6" value="a"> a) Gaia</label>
+        <label><input type="radio" name="g6" value="b"> b) Helios</label>
+        <label><input type="radio" name="g6" value="c"> c) Persephone</label>
+      </div>
+    </li>
+    <li>
+      <div>In God of War III, what does Kratos seek in order to defeat Zeus?</div>
+      <div class="opts">
+        <label><input type="radio" name="g7" value="a"> a) the Flame of Olympus</label>
+        <label><input type="radio" name="g7" value="b"> b) the Golden Fleece</label>
+        <label><input type="radio" name="g7" value="c"> c) the Blades of Athena</label>
+      </div>
+    </li>
+    <li>
+      <div>What was Faye, Kratos's second wife, really?</div>
+      <div class="opts">
+        <label><input type="radio" name="g8" value="a"> a) a Giant</label>
+        <label><input type="radio" name="g8" value="b"> b) a Valkyrie</label>
+        <label><input type="radio" name="g8" value="c"> c) a Vanir goddess</label>
+      </div>
+    </li>
+    <li>
+      <div>Why does Baldur attack Kratos and Atreus?</div>
+      <div class="opts">
+        <label><input type="radio" name="g9" value="a"> a) He wants their weapons.</label>
+        <label><input type="radio" name="g9" value="b"> b) Odin sent him to find Faye to stop Ragnarök.</label>
+        <label><input type="radio" name="g9" value="c"> c) He wants revenge on Thor.</label>
+      </div>
+    </li>
+    <li>
+      <div>Who is Baldur's mother?</div>
+      <div class="opts">
+        <label><input type="radio" name="g10" value="a"> a) Freya</label>
+        <label><input type="radio" name="g10" value="b"> b) Gaia</label>
+        <label><input type="radio" name="g10" value="c"> c) Athena</label>
+      </div>
+    </li>
+  </ol>
+
+  <p><strong>Part B – Fill in the blank</strong></p>
+  <ol class="q">
+    <li>Kratos was tricked into killing his wife and his <input type="text" class="line"></li>
+    <li>Kratos served the Olympian gods for <input type="text" class="line short"> years.</li>
+    <li>Kratos is known as the “Ghost of <input type="text" class="line">.”</li>
+    <li>The Sisters of <input type="text" class="line"> can change Kratos's fate.</li>
+    <li>Kratos's second wife, Faye, wanted her <input type="text" class="line"> spread on the highest peak.</li>
+    <li>The three-year winter that begins after Baldur dies is called <input type="text" class="line">.</li>
+    <li>The end of the world in Norse mythology is called <input type="text" class="line">.</li>
+    <li>Kratos's main Norse weapon is the Leviathan <input type="text" class="line">.</li>
+    <li>Odin is known as the <input type="text" class="line">.</li>
+    <li>In <em>Sons of Sparta</em>, Kratos's younger brother is named <input type="text" class="line">.</li>
+  </ol>
+
+  <!-- 4.3 Essay -->
+  <div class="part-title">4.3 Essay</div>
+  <p><strong>Topic: “Describe your hometown.”</strong></p>
+  <p class="sub"><span class="timer">20 minutes</span> &nbsp; Write about 100 words. You may include:
+     where it is, what it looks like, what people do there, and what you like about it.</p>
+  <textarea placeholder="Write your essay here..."></textarea>
+
+  <!-- 4.4 Grammar -->
+  <div class="part-title">4.4 Grammar</div>
+  <p class="sub">Write the correct form of the verb in brackets. Based on the first ten chapters (Units 1–10) of
+    <a href="https://www.essentialenglish.review/english-grammar-in-use-with-answers/" target="_blank" rel="noopener">English Grammar in Use With Answers</a>.</p>
+  <ol class="q">
+    <li>Look! It <input type="text" class="line"> (rain) outside.</li>
+    <li>We <input type="text" class="line"> (watch) a film at the moment.</li>
+    <li>My brother <input type="text" class="line"> (work) in a bank.</li>
+    <li>I <input type="text" class="line"> (not / like) cold weather.</li>
+    <li>Listen! Someone <input type="text" class="line"> (play) the guitar.</li>
+    <li>I usually <input type="text" class="line"> (take) the bus, but today I <input type="text" class="line"> (walk).</li>
+    <li>Yesterday I <input type="text" class="line"> (go) to the market with my mother.</li>
+    <li>They <input type="text" class="line"> (not / visit) their grandparents last month.</li>
+    <li>At 9 o'clock last night, I <input type="text" class="line"> (study).</li>
+    <li>While we <input type="text" class="line"> (walk) in the park, it started to rain.</li>
+    <li>I <input type="text" class="line"> (visit) Pokhara three times.</li>
+    <li>She <input type="text" class="line"> (never / eat) Korean food.</li>
+    <li>Have you ever <input type="text" class="line"> (be) to Chitwan?</li>
+    <li>We <input type="text" class="line"> (wait) here for twenty minutes.</li>
+    <li>How long <input type="text" class="line"> you <input type="text" class="line"> (live) in this city?</li>
+    <li>I <input type="text" class="line"> (read) this book since Monday.</li>
+    <li>Ram <input type="text" class="line"> (read) three chapters of the book so far.</li>
+    <li>Mary is tired. She <input type="text" class="line"> (work) in the garden all day.</li>
+    <li>Last Sunday, I <input type="text" class="line"> (meet) my old friend at the cinema.</li>
+    <li>Right now, my sister <input type="text" class="line"> (sleep) in her room.</li>
+  </ol>
+</section>
+
+<p class="sub" style="text-align:center;">End of exam. Thank you, Roshan.</p>
+
+</main>
+</body>
+</html>
